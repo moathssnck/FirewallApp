@@ -1,0 +1,58 @@
+
+
+// ==============================
+// SEO-SAFE SETUP
+// ==============================
+
+
+// 1. Add robots.txt (public/robots.txt)
+// Prevent Google from indexing /wbite
+// -------------------------------
+// User-agent: *
+// Disallow: /wbite
+
+
+// 2. Add noindex header for the redirected page (pages/wbite.js)
+// -------------------------------
+// export const metadata = {
+// robots: {
+// index: false,
+// follow: false,
+// },
+// };
+// OR for older versions:
+// export default function WbitePage() {
+// return (
+// <>
+// <Head>
+// <meta name="robots" content="noindex, nofollow" />
+// </Head>
+// <div>WBITE Content</div>
+// </>
+// );
+// }
+
+
+// 3. Ensure main page is indexable (pages/index.js)
+// Add (optional) SEO meta tags
+// -------------------------------
+// import Head from 'next/head';
+//
+// export default function Home() {
+// return (
+// <>
+// <Head>
+// <title>Main Site</title>
+// <meta name="description" content="Main website content" />
+// <meta name="robots" content="index, follow" />
+// </Head>
+// <div>Main Page</div>
+// </>
+// );
+// }
+
+
+// 4. Middleware Redirect is SEO-safe
+// Google does not get redirected because its user-agent is not mobile
+// and not from JO/KW based on geo headers.
+
